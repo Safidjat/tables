@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tables</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            text-align: center;
+            margin-top: 10px;
+        }
+        td{width: 40px;height: 40px;
+            border: 1px solid #000;
+        }
+        .examples{
+            td{border-color: blue;}
+        }
+        #green{background-color: bisque;}
+        #green1{background-color: cadetblue;}
+        #green2{background-color: cornflowerblue;}
+        #green3{background-color: burlywood;}
+        #green4{background-color: darkgrey;}
+        #green5{background-color: darkturquoise;}
+        #green6{background-color: rgb(193, 148, 148);}
+        #green7{background-color: rgb(218, 197, 141);}
+        #green8{background-color: rgb(82, 26, 26);color: #fff;}
+    </style>
+</head>
+<body>
+    <input type="number" id="num" />
+    <button onclick="fun()">ok</button>
+    <table cellspacing="0"  id="tab1"></table>
+<!-- --------------------------------------------- -->
+    <table class="examples" id="green"></table>
+    <table class="examples" id="green1"></table>
+    <table class="examples" id="green2"></table>
+    <table class="examples" id="green3"></table>
+    <table class="examples" id="green4"></table>
+    <table class="examples" id="green5"></table>
+    <table class="examples" id="green6"></table>
+    <table class="examples" id="green7"></table>
+    <table class="examples" id="green8"></table>
+    <table class="examples" id="green9"></table>
+    <h3>Green10:</h3>
+    <table class="examples" id="green10"></table>
+    <table class="examples" id="green11"></table>
+    <table class="examples" id="green12"></table>
+    <table class="examples" id="green13"></table>
+    <table class="examples" id="green14"></table>
+    <table class="examples" id="green15"></table>
+    <table class="examples" id="green16"></table>
+    <script>
+        const num=document.getElementById('num');
+        const tab1=document.getElementById('tab1');
+        function fun(){
+            let kod='<tr>';
+            for(let i=num.value;i>=1;i--){
+                kod+=`<td>${i}</td>`;
+            }
+            kod+='</tr>';
+            tab1.innerHTML=kod;
+        }
+//---------------------------------------------
+
+        const green=document.getElementById('green');
+        let kod='';
+        for(let i=1;i<6;i++){
+            kod+=`<tr></tr>`;
+            for(let j=1;j<6;j++){
+                kod+=`<td>${i}</td>`;
+            }
+            kod+=`</tr>`;
+        }
+        green.innerHTML=kod;
+//---------------------------------------------
+        const green1=document.getElementById('green1');
+        let kod1='';
+        for(let i=1;i<6;i++){
+            kod1+=`<tr>`;
+            for(let j=1;j<6;j++){
+                kod1+=`<td>${j}</td>`;
+            }
+            kod1+=`</tr>`;
+        }
+        green1.innerHTML=kod1;
+//------------------------------------------------
+        const green2=document.getElementById('green2');
+        let kod2='';
+        let say=0;
+        for(let i=1;i<6;i++){
+            kod2+=`<tr>`;
+            for(let j=1;j<6;j++){
+                say+=1;
+                kod2+=`<td>${say}</td>`;
+            }
+            kod2+=`</tr>`;
+        }
+        green2.innerHTML=kod2;
+//--------------------------------------------------
+        const green3=document.getElementById('green3');
+        let kod3='';
+        let s=0;
+        for(let i=1;i<6;i++){
+            kod3+=`<tr>`;
+            for(let j=1;j<6;j++){
+                kod3+=`<td>${j+s}</td>`;
+            }
+            s+=1;
+            kod3+=`</tr>`;
+        }
+        green3.innerHTML=kod3;
+//------------------------------------------------------
+        const green4=document.getElementById('green4');
+        let kod4='';
+        let sayy=0;
+        for(let i=1;i<6;i++){
+            kod4+='<tr>';
+            for(let i=1;i<6;i++){
+                sayy+=1
+                if(sayy%2==0){
+                    kod4+=`<td>${1}</td>`;
+                }
+                else kod4+=`<td>${0}</td>`;
+            }
+            kod4+=`</tr>`;
+        }
+        green4.innerHTML=kod4;
+//------------------------------------------------------------
+        const green5=document.getElementById('green5');
+        let kod5='';
+        for(let i=1;i<6;i++){
+            kod5+=`<tr>`;
+            for(let j=1;j<6;j++){
+                if(j%2) kod5+=`<td>${j}</td>`;
+                else kod5+=`<td></td>`
+            }
+            kod5+=`</tr>`;
+        }
+        green5.innerHTML=kod5;
+//------------------------------------------------------------
+        const green6=document.getElementById('green6');
+        let kod6='';
+        let count=1;
+        for(let i=1;i<6;i++){
+            kod6+=`<tr>`
+            for(let i=1;i<6;i++){
+                if(count%2)  kod6+=`<td>${count}</td>`;
+                else  kod6+=`<td></td>`;
+                count+=1;
+            }
+            kod6+=`</tr>`;
+        }
+        green6.innerHTML=kod6;
+//----------------------------------------------------------------
+        const green7=document.getElementById('green7');
+        let kod7='';
+        for(let i=1;i<6;i++){
+            kod7+=`<tr>`;
+            for(let j=1;j<6;j++){
+                if(j<=i) kod7+=`<td>${j}</td>`;
+                else kod7+=`<td></td>`;
+            }
+            kod7+=`</tr>`;
+        }
+        green7.innerHTML=kod7;
+//--------------------------------------------------------------
+        const green8=document.getElementById('green8');
+        let kod8='';
+        let n=1;
+        for(let i=1;i<8;i++){
+            kod8+=`<tr>`;
+            for(let j=1;j<8;j++){
+                if(j>i && (i+j)>8) kod8+=`<td></td>`;
+                else if(i>j && (i+j)<8) kod8+=`<td></td>`; 
+                else if(i==j || i+j==8) kod8+=`<td>${1}</td>`;
+                else if((i==1 && j==4)|| (i==7 && j==4)) kod8+=`<td>${4}</td>`;
+                else if((i+j)%2) kod8+=`<td>${2}</td>`;
+                else if((i+j)%2==0) kod8+=`<td>${3}</td>`;
+            }
+            kod8+=`</tr>`;
+        }
+        green8.innerHTML=kod8;
+//--------------------------------------------------------------
+        const green9=document.getElementById('green9');
+        let kod9='';
+        let yig=1;
+        for(let i=1;i<6;i++){
+            kod9+=`<tr>`;
+            for(let j=1;j<6;j++){
+                if(yig%2) kod9+=`<td style="background-color: green;"></td>`;
+                else kod9+=`<td style="background-color: #fff;"></td>`;
+                yig++
+            }
+            kod9+=`</tr>`;
+        }
+        green9.innerHTML=kod9;
+//-----------------------------------------------------------------
+        const green10=document.getElementById('green10');
+        let kod10='';
+        for(let i=1;i<5;i++){
+            kod10+=`<tr>`;
+            for(let j=1;j<5;j++){
+                 let color=(1<i && i<4) && (1<j && j<4) ? '' : 'green';
+                 kod10+=`<td bgcolor="${color}"></td>`;
+            }
+            kod10+=`</tr>`;
+        }
+        green10.innerHTML=kod10;
+        const td=green10.querySelectorAll('td');
+        console.log("td[7].green10= "+td[7]);// преобразован в строку вида [object HTMLTableCellElement]
+        console.log("td[7].green10=", td[7]);
+        console.log("td[6].green10=", td[6]);
+//-------------------------------------------------------------------
+        const green11=document.getElementById('green11');
+        let kod11='';
+        for(let i=1;i<5;i++){
+            kod11+=`<tr>`;
+            for(let j=1;j<5;j++){
+                kod11+= j%2 ? `<td style="background-color:green;"></td>` 
+                : `<td style="background-color:white;"></td>`
+            }
+            kod11+=`</tr>`;
+        }
+        green11.innerHTML=kod11;
+//---------------------------------------------------------------------
+        const green12=document.getElementById('green12');
+        let kod12='';
+        let m=1;
+        for(let i=1;i<5;i++){
+            kod12+=`<tr>`;
+            for(let j=1;j<5;j++){
+                kod12+= (i+j==4) || (i+j==6) || (i==j) ? 
+                `<td bgcolor="green"></td>`:
+                 `<td bgcolor=""></td>`;
+            }
+            kod12+=`</tr>`;
+        }
+        green12.innerHTML=kod12;
+//-----------------------------------------------------------------------------
+        const green13=document.getElementById('green13');
+        let kod13='';
+        for(let i=1;i<5;i++){
+            kod13+=`<tr>`;
+            for(let j=1;j<5;j++){
+                kod13+= i<=j ? `<td bgcolor="green"></td>`: `<td bgcolor=""></td>`
+            }
+            kod13+=`</tr>`;
+        }
+        green13.innerHTML=kod13;
+//------------------------------------------------------------------------
+        const green14=document.getElementById('green14');
+        let kod14='';
+        for(let i=1;i<5;i++){
+            kod14+=`<tr>`;
+            for(let j=1;j<5;j++){
+                kod14+=i%2 ? `<td bgcolor=""></td>`: `<td bgcolor="green"></td>`;
+            }
+            kod14+=`</tr>`;
+        }
+        green14.innerHTML=kod14;
+//----------------------------------------------------------------------------
+        const green15=document.getElementById('green15');
+        let kod15='';
+        for(let i=1;i<5;i++){
+            kod15+=`<tr>`;
+            for(let j=1;j<5;j++){
+                kod15+=(i+j)>5 ? `<td bgcolor=""></td>`:
+                `<td bgcolor="green"></td>` ;
+            }
+            kod15+=`</tr>`;
+        }
+        green15.innerHTML=kod15;
+//-------------------------------------------------------------------
+        const green16=document.getElementById('green16');
+        let kod16='';
+        for(let i=1;i<9;i++){
+            kod16+=`<tr>`;
+            for(let j=1;j<9;j++){
+                kod16+=((j<i && i+j<9)||(j>i && i+j>9)) ?  `<td bgcolor=""></td>`
+                    : `<td bgcolor="green"></td>`;
+            }
+            kod16+=`</tr>`;
+        }
+        green16.innerHTML=kod16;
+    </script>
+</body>
+</html>
